@@ -2,6 +2,9 @@
  * Simple interface to the Fly Sky IBus RC system.
  */
 
+#ifndef FLYSKYIBUS_H
+#define FLYSKYIBUS_H
+
 #include <inttypes.h>
 
 class HardwareSerial;
@@ -12,8 +15,8 @@ class FlySkyIBus
 public:
   void begin(HardwareSerial& serial);
   void begin(Stream& stream);
-  void loop(void);
-  uint16_t readChannel(uint8_t channelNr);
+  void readNewData(void);
+  uint16_t getChannel(uint8_t channelNr);
 
 private:
   enum State
@@ -43,3 +46,5 @@ private:
 };
 
 extern FlySkyIBus IBus;
+
+#endif //FLYSKYIBUS_H

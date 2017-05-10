@@ -13,6 +13,6 @@ void setup()
 
 void loop() 
 {
-  IBus.loop();
-  Serial.println(IBus.readChannel(0), HEX);
+  IBus.readNewData();
+  Serial.println(IBus.getChannel(0));
 }
